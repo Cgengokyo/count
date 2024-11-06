@@ -14,46 +14,47 @@
       <link rel="apple-touch-icon" href="apple-touch-icon.png">
       <title>2024年度第3回実用英語技能検定まで</title>
       <script>
-         const colors = ["color1", "color2", "color3", "color4", "color5", "color6", "color7", "color8", "color9", "color10", "color11", "color12", "color13", "color14", "color15", "color16", "color17", "color18", "color19", "color20"];
-             let currentColorIndex = 0;
-         
-             function updateColor() {
-                 const countdownDivs = document.querySelectorAll("#rgb-on div");
-                 countdownDivs.forEach((div) => {
-                     div.className = colors[currentColorIndex];
-                 });
-         
-                 currentColorIndex = (currentColorIndex + 1) % colors.length;
-             }
+    const colors = ["color1", "color2", "color3", "color4", "color5", "color6", "color7", "color8", "color9", "color10", "color11", "color12", "color13", "color14", "color15", "color16", "color17", "color18", "color19", "color20"];
+    let currentColorIndex = 0;
 
-             let alertShown = false;
+    function updateColor() {
+        const countdownDivs = document.querySelectorAll("#rgb-on div");
+        countdownDivs.forEach((div) => {
+            div.className = colors[currentColorIndex];
+        });
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+    }
 
-function updateCountdown() {
-    const targetDate = new Date("2025-01-26T00:00:00"); // ターゲットの日付を設定
-    const currentDate = new Date(); // 現在の日付を取得
-    const timeDifference = targetDate - currentDate; // 残り時間を計算
+    function updateCountdown() {
+        const targetDate = new Date("2025-01-26T00:00:00");
+        const currentDate = new Date();
+        const timeDifference = targetDate - currentDate;
 
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
 
-    // #rgb-on の更新
-    rgbOnCountdownDiv.querySelector("#days").textContent = days;
-    rgbOnCountdownDiv.querySelector("#hours").textContent = hours;
-    rgbOnCountdownDiv.querySelector("#minutes").textContent = minutes;
-    rgbOnCountdownDiv.querySelector("#seconds").textContent = seconds;
+        const rgbOnCountdownDiv = document.getElementById("rgb-on");
+        rgbOnCountdownDiv.querySelector("#days").textContent = days;
+        rgbOnCountdownDiv.querySelector("#hours").textContent = hours;
+        rgbOnCountdownDiv.querySelector("#minutes").textContent = minutes;
+        rgbOnCountdownDiv.querySelector("#seconds").textContent = seconds;
+    }
 
-setInterval(updateCountdown, 1000); // 1秒ごとにカウントダウンを更新する
-setInterval(updateColor, 10); // 0.01秒ごとにカラーを切り替える
+    // 毎秒カウントダウンを更新
+    setInterval(updateCountdown, 1000);
+    // 0.01秒ごとに色を切り替え
+    setInterval(updateColor, 10);
 
-         console.log("%cHey!", "color: #88F; font-size: 500%; font-weight:bold;text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83333px 0.983333px 0px, rgb(0, 0, 0) 2.35px 1.85px 0px, rgb(0, 0, 0) 1.61667px 2.51667px 0px, rgb(0, 0, 0) 0.7px 2.91667px 0px, rgb(0, 0, 0) -0.283333px 2.98333px 0px, rgb(0, 0, 0) -1.25px 2.73333px 0px, rgb(0, 0, 0) -2.06667px 2.16667px 0px, rgb(0, 0, 0) -2.66667px 1.36667px 0px, rgb(0, 0, 0) -2.96667px 0.416667px 0px, rgb(0, 0, 0) -2.95px -0.566667px 0px, rgb(0, 0, 0) -2.6px -1.5px 0px, rgb(0, 0, 0) -1.96667px -2.26667px 0px, rgb(0, 0, 0) -1.11667px -2.78333px 0px, rgb(0, 0, 0) -0.133333px -3px 0px, rgb(0, 0, 0) 0.85px -2.88333px 0px, rgb(0, 0, 0) 1.75px -2.43333px 0px, rgb(0, 0, 0) 2.45px -1.73333px 0px, rgb(0, 0, 0) 2.88333px -0.833333px 0px;");
-      </script>
+    console.log("%cHey!", "color: #88F; font-size: 500%; font-weight:bold; text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83333px 0.983333px 0px, rgb(0, 0, 0) 2.35px 1.85px 0px, rgb(0, 0, 0) 1.61667px 2.51667px 0px, rgb(0, 0, 0) 0.7px 2.91667px 0px, rgb(0, 0, 0) -0.283333px 2.98333px 0px, rgb(0, 0, 0) -1.25px 2.73333px 0px, rgb(0, 0, 0) -2.06667px 2.16667px 0px, rgb(0, 0, 0) -2.66667px 1.36667px 0px, rgb(0, 0, 0) -2.96667px 0.416667px 0px, rgb(0, 0, 0) -2.95px -0.566667px 0px, rgb(0, 0, 0) -2.6px -1.5px 0px, rgb(0, 0, 0) -1.96667px -2.26667px 0px, rgb(0, 0, 0) -1.11667px -2.78333px 0px, rgb(0, 0, 0) -0.133333px -3px 0px, rgb(0, 0, 0) 0.85px -2.88333px 0px, rgb(0, 0, 0) 1.75px -2.43333px 0px, rgb(0, 0, 0) 2.45px -1.73333px 0px, rgb(0, 0, 0) 2.88333px -0.833333px 0px;");
+</script>
+
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
