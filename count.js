@@ -1,24 +1,45 @@
-let countdown = setInterval(function(){
-    const now = new Date()  //今の日時
-    const target = new Date("2022/11/22 13:00:00") //ターゲット日時を取得
-    const remainTime = target - now  //差分を取る（ミリ秒で返ってくる
-
-    //指定の日時を過ぎていたら処理をしない
-    if(remainTime < 0) return false 
-
-    //差分の日・時・分・秒を取得
-    const difDay  = Math.floor(remainTime / 1000 / 60 / 60 / 24)
-    const difHour = Math.floor(remainTime / 1000 / 60 / 60 ) % 24
-    const difMin  = Math.floor(remainTime / 1000 / 60) % 60
-    const difSec  = Math.floor(remainTime / 1000) % 60
-
-    //残りの日時を上書き
-    document.getElementById("countdown-day").textContent  = difDay
-    document.getElementById("countdown-hour").textContent = difHour
-    document.getElementById("countdown-min").textContent  = difMin
-    document.getElementById("countdown-sec").textContent  = difSec
-
-    //指定の日時になればカウントを止める
-    if(remainTime < 0) clearInterval(countdown)
-
-}, 1000)    //1秒間に1度処理
+const checkbox = document.getElementById('switch');
+const countdownDiv = document.getElementById('countdown');
+// チェックボックスの変更イベントリスナー
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    countdownDiv.style.display = 'none'; // チェックが入っている場合、カウントダウンを非表示にする
+  } else {
+    countdownDiv.style.display = 'flex'; // チェックが入っていない場合、カウントダウンを表示する
+  }
+});
+// 初期状態はOFFなので、最初はカウントダウンを表示しておく
+countdownDiv.style.display = 'flex';
+const rgbOnCountdownDiv = document.getElementById('rgb-on');
+// チェックボックスの変更イベントリスナー
+checkbox.addEventListener('change', () => {
+  const isSwitchOn = checkbox.checked;
+  // RGBがONの場合はカウントダウンを非表示にし、OFFの場合は表示する
+  countdownDiv.style.display = isSwitchOn ? 'none' : 'flex';
+  rgbOnCountdownDiv.style.display = isSwitchOn ? 'flex' : 'none';
+});
+// 初期状態はOFFなので、最初はカウントダウンを表示しておく
+countdownDiv.style.display = 'flex';
+rgbOnCountdownDiv.style.display = 'none';
+const switchTitle = document.querySelector('.title');
+// チェックボックスの変更イベントリスナー
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    // スイッチがONの場合
+    switchTitle.textContent = 'ON';
+  } else {
+    // スイッチがOFFの場合
+    switchTitle.textContent = 'OFF';
+  }
+});
+// 初期状態はOFFなので、最初は'OFF'を表示しておく
+switchTitle.textContent = 'OFF';
+const closeButton = document.querySelector('.close-button');
+const rgbButton = document.querySelector('.rgb-button');
+// close-buttonのクリックイベントリスナー
+closeButton.addEventListener('click', () => {
+  // rgb-buttonを非表示にする
+  rgbButton.style.display = 'none';
+});
+// 初期状態はrgb-buttonを表示しておく
+rgbButton.style.display = 'block';
