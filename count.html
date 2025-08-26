@@ -1,457 +1,662 @@
 <!DOCTYPE html>
-<html lang="ja" dir="ltr">
-   <meta charset="UTF-8">
-   <head>
-      <meta name="google-site-verification" content="MwqbMa2EIEr7I59Lej4Zy9ZHd1PN6DK9N126tWU9IHc" />
-      <!-- Favicon -->
-      <link rel="icon" type="image/x-icon" href="favicon.ico">
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-      <!-- For Android -->
-      <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-      <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-      <!-- For Apple Touch Icon -->
-      <link rel="apple-touch-icon" href="apple-touch-icon.png">
-      <title>2025年度第2回実用英語技能検定まで</title>
-      <script>
-    const colors = ["color1", "color2", "color3", "color4", "color5", "color6", "color7", "color8", "color9", "color10", "color11", "color12", "color13", "color14", "color15", "color16", "color17", "color18", "color19", "color20"];
-    let currentColorIndex = 0;
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2025年度第2回実用英語技能検定まで</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <style>
+    :root {
+      --bg: #0a0a1a;
+      --primary: #00ffff;
+      --primary-dark: #00b3b3;
+      --text: #e0e0e0;
+      --card: #1a1a2e;
+      --border: #3a3a5e;
+    }
 
-    function updateColor() {
-        const countdownDivs = document.querySelectorAll("#rgb-on div");
-        countdownDivs.forEach((div) => {
-            div.className = colors[currentColorIndex];
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      padding: 1rem;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.4rem;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--primary);
+      text-shadow: 0 0 6px var(--primary);
+      font-size: clamp(28px, 4.5vw, 72px);
+      line-height: 1;
+      text-align: center;
+      width: 100%;
+      display: block;
+      overflow: visible;
+      margin: 0;
+    }
+
+    .title-wrapper-mobile {
+      display: block;
+      text-align: center;
+    }
+
+    .title-line1 {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 27px;
+    }
+
+    .title-line2 {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 27px;
+    }
+
+    .title-desktop {
+      display: none;
+    }
+
+    .count-wrap {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+      border-radius: 12px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: var(--border);
+      background: rgba(255,255,255,0.02);
+      box-sizing: border-box;
+    }
+
+    .unit .value {
+      font-weight: 800;
+      font-size: clamp(28px, 4.5vw, 48px);
+      line-height: 1;
+      display: block;
+    }
+
+    .unit .label {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    /* color */
+    .color1 { color: #ff4d4d; }
+    .color2 { color: #ff8a33; }
+    .color3 { color: #ffd24d; }
+    .color4 { color: #4cd97b; }
+    .color5 { color: #4d9bff; }
+    .color6 { color: #6f5cff; }
+    .color7 { color: #b86bff; }
+    .color8 { color: #9fff4d; }
+    .color9 { color: #aeefff; }
+    .color10 { color: #5fb6b6; }
+    .color11 { color: #00bfff; }
+    .color12 { color: #808000; }
+    .color13 { color: #d3a4ff; }
+    .color14 { color: #2ea36b; }
+    .color15 { color: #800080; }
+    .color16 { color: #1f640a; }
+    .color17 { color: rgb(24,184,224); }
+    .color18 { color: rgb(228,135,29); }
+    .color19 { color: rgb(85,56,216); }
+    .color20 { color: rgb(42,155,130); }
+
+    .rgb-button {
+      position: fixed;
+      left: 1rem;
+      bottom: 1rem;
+      z-index: 999;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      border-radius: 10px;
+      background: var(--card);
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--border);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      user-select: none;
+      flex-wrap: nowrap;
+    }
+
+    .rgb-close {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 1.15rem;
+      cursor: pointer;
+      padding: 4px 6px;
+      line-height: 1;
+    }
+
+    .switch_label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .switch_label input[type="checkbox"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .base {
+      width: 60px;
+      height: 36px;
+      border-radius: 999px;
+      background: #ddd;
+      position: relative;
+      flex-shrink: 0;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgba(0,0,0,0.06);
+      transition: background 0.18s, border-color 0.18s;
+    }
+
+    .circle {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff;
+      top: 4px;
+      left: 4px;
+      transition: transform 0.18s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .switch_label input[type="checkbox"]:checked + .base {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      border-color: var(--primary);
+    }
+
+    .switch_label input[type="checkbox"]:checked + .base .circle {
+      transform: translateX(100%);
+    }
+
+    .switch_label input[type="checkbox"]:checked + .base + .switch-title {
+      color: var(--primary);
+    }
+
+    .switch-title {
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--text);
+      font-size: 0.98rem;
+      display: inline-block;
+      min-width: 84px;
+      text-align: left;
+    }
+
+    .switch-title.rgb::before {
+      content: "RGB ";
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .switch-title.ms::before {
+      content: "ミリ秒 ";
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    /* コピーライト */
+    .copyright {
+      width: 100%;
+      max-width: 760px;
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+      padding-left: 0.9rem;
+      padding-right: 0.9rem;
+      border-radius: 8px;
+      background: var(--card);
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--border);
+      text-align: center;
+      font-size: 0.95rem;
+      margin-top: 1.2rem;
+    }
+
+    .copyright .cr-part {
+      display: inline;
+    }
+
+    /* ======= スマホ ======= */
+    @media (max-width: 420px) {
+      .container {
+        gap: 1.0rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+      }
+
+      h1 {
+        font-size: clamp(18px, 8.0vw, 28px);
+        white-space: normal;
+      }
+
+      .title-wrapper-mobile {
+        display: block;
+      }
+
+      .title-desktop {
+        display: none;
+      }
+
+      .title-line1 {
+        font-size: 27px;
+      }
+
+      .title-line2 {
+        font-size: 27px;
+      }
+
+      .count-wrap {
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+
+      .unit {
+        flex: 0 0 22%;
+        max-width: 22%;
+        min-width: 0;
+        padding-top: 0.45rem;
+        padding-bottom: 0.45rem;
+        padding-left: 0.45rem;
+        padding-right: 0.45rem;
+        border-width: 1px;
+      }
+
+      .unit .value {
+        font-size: clamp(16px, 7.5vw, 24px);
+      }
+
+      .rgb-button {
+        left: 0.5rem;
+        bottom: 0.5rem;
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+        gap: 0.35rem;
+      }
+
+      .copyright {
+        margin-top: 1.0rem;
+        font-size: 0.88rem;
+      }
+
+      .copyright .cr-part {
+        display: block;
+        margin-top: 6px;
+      }
+    }
+
+    /* ======= タブレット ======= */
+    @media (max-width: 900px) {
+      .container {
+        gap: 1.6rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+      }
+
+      h1 {
+        font-size: clamp(20px, 5.2vw, 44px);
+        white-space: normal;
+      }
+
+      .title-wrapper-mobile {
+        display: block;
+      }
+
+      .title-desktop {
+        display: none;
+      }
+
+      .title-line1 {
+        display: block;
+        text-align: center;
+      }
+
+      .title-line2 {
+        display: block;
+        text-align: center;
+      }
+
+      .count-wrap {
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+
+      .unit {
+        flex: 0 0 23%;
+        max-width: 23%;
+        min-width: 0;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+      }
+
+      .unit .value {
+        font-size: clamp(20px, 4.2vw, 34px);
+      }
+
+      .rgb-button {
+        left: 0.7rem;
+        bottom: 0.7rem;
+      }
+
+      .copyright {
+        font-size: 0.92rem;
+      }
+    }
+
+    /* ======= PC ======= */
+    @media (min-width: 901px) {
+      .container {
+        gap: 2.8rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      h1 {
+        font-size: 78px;
+        white-space: nowrap;
+      }
+
+      .title-wrapper-mobile {
+        display: none;
+      }
+
+      .title-desktop {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .title-desktop .title-desktop-text {
+        display: inline-block;
+        font-size: 78px;
+        line-height: 1;
+        white-space: nowrap;
+        margin: 0;
+      }
+
+      .count-wrap {
+        gap: 1.6rem;
+      }
+
+      .unit {
+        flex: 0 0 200px;
+        min-width: 200px;
+        padding-top: 1.4rem;
+        padding-bottom: 1.4rem;
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+        border-width: 2px;
+      }
+
+      .unit .value {
+        font-size: 3rem;
+      }
+
+      .copyright {
+        margin-top: 2.6rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="page-title">
+    <!-- 見出し -->
+    <h1 id="page-title" aria-label="2025年度第2回 実用英語技能検定まで">
+      <div class="title-wrapper-mobile" aria-hidden="false">
+        <span class="title-line1">2025年度第2回</span>
+        <span class="title-line2">実用英語技能検定まで</span>
+      </div>
+      <div class="title-desktop" aria-hidden="true">
+        <span class="title-desktop-text">2025年度第2回 実用英語技能検定まで</span>
+      </div>
+    </h1>
+    <!-- 通常カウントダウン -->
+    <div id="countdown" class="count-wrap" aria-live="polite" role="status">
+      <div class="unit" data-unit="days"><span class="value">0</span><span class="label">日</span></div>
+      <div class="unit" data-unit="hours"><span class="value">0</span><span class="label">時間</span></div>
+      <div class="unit" data-unit="minutes"><span class="value">0</span><span class="label">分</span></div>
+      <div class="unit" data-unit="seconds"><span class="value">0.00</span><span class="label">秒</span></div>
+    </div>
+    <!-- RGB表示 -->
+    <div id="rgb-on" class="count-wrap" aria-hidden="true" style="display:none;">
+      <div class="unit" data-unit="days"><span class="value">0</span><span class="label">日</span></div>
+      <div class="unit" data-unit="hours"><span class="value">0</span><span class="label">時間</span></div>
+      <div class="unit" data-unit="minutes"><span class="value">0</span><span class="label">分</span></div>
+      <div class="unit" data-unit="seconds"><span class="value">0.00</span><span class="label">秒</span></div>
+    </div>
+    <div class="copyright" role="contentinfo">
+      <p>
+        <span class="cr-part">Copyright © B.C 114514 Cgengokyo Inc.</span>
+        <span class="cr-part">All Rights Reserved.</span>
+      </p>
+    </div>
+  </div>
+  <div class="rgb-button" role="region" aria-label="RGB とミリ秒の切替">
+    <button class="rgb-close close-button" aria-label="閉じるパネル">×</button>
+    <!-- RGB スイッチ -->
+    <label class="switch_label" for="switch">
+      <input id="switch" type="checkbox" aria-checked="false" />
+      <div class="base" aria-hidden="true"><div class="circle" aria-hidden="true"></div></div>
+      <span class="switch-title rgb" aria-hidden="true">OFF</span>
+    </label>
+    <!-- ミリ秒 スイッチ -->
+    <label class="switch_label" for="ms-switch">
+      <input id="ms-switch" type="checkbox" aria-checked="false" />
+      <div class="base" aria-hidden="true"><div class="circle" aria-hidden="true"></div></div>
+      <span class="switch-title ms" aria-hidden="true">OFF</span>
+    </label>
+  </div>
+  <script>
+    (function(){
+      const TARGET_DATE = new Date("2025-10-05T00:00:00");
+      const COLOR_NAMES = ["color1","color2","color3","color4","color5","color6","color7","color8","color9","color10",
+                           "color11","color12","color13","color14","color15","color16","color17","color18","color19","color20"];
+      const COLOR_INTERVAL_MS = 150;
+      const UPDATE_INTERVAL_MS = 50;
+
+      const rgbCheckbox = document.getElementById('switch');
+      const msCheckbox  = document.getElementById('ms-switch');
+      const countdownDiv = document.getElementById('countdown');
+      const rgbOnDiv = document.getElementById('rgb-on');
+      const rgbButton = document.querySelector('.rgb-button');
+      const closeButton = document.querySelector('.close-button');
+
+      const UNITS = ["days","hours","minutes","seconds"];
+      function getValueElem(container, unit){
+        return container.querySelector(`[data-unit="${unit}"] .value`);
+      }
+
+      let finishedFlag = false;
+      let colorIndex = 0;
+      let countdownTimer = null;
+      let colorTimer = null;
+      let showCs = true;
+      const KEY_RGB = 'countRgbOn';
+      const KEY_MS  = 'countShowCs';
+
+      function updateCountdownOnce(){
+        const now = new Date();
+        let diff = TARGET_DATE - now;
+        if (diff <= 0){
+          diff = 0;
+          if (!finishedFlag){
+            finishedFlag = true;
+            if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+          }
+        }
+
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+        const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+        const seconds = Math.floor((diff % (1000*60)) / 1000);
+        const ms = Math.floor(diff % 1000);
+        const cs = Math.floor(ms / 10);
+
+        const secondsWithCs = showCs ? `${seconds}.${String(cs).padStart(2,'0')}` : String(seconds);
+        const values = { days, hours, minutes, seconds: secondsWithCs };
+
+        UNITS.forEach(u => {
+          const e1 = getValueElem(countdownDiv, u);
+          const e2 = getValueElem(rgbOnDiv, u);
+          if (e1) e1.textContent = values[u];
+          if (e2) e2.textContent = values[u];
         });
-        currentColorIndex = (currentColorIndex + 1) % colors.length;
-    }
+      }
 
-    function updateCountdown() {
-        const targetDate = new Date("2025-10-05T00:00:00");
-        const currentDate = new Date();
-        const timeDifference = targetDate - currentDate;
+      function updateColorOnce(){
+        const valueElems = Array.from(rgbOnDiv.querySelectorAll('.value'));
+        valueElems.forEach((span, idx) => {
+          COLOR_NAMES.forEach(c => span.classList.remove(c));
+          const colorClass = COLOR_NAMES[(colorIndex + idx) % COLOR_NAMES.length];
+          span.classList.add(colorClass);
+        });
+        colorIndex = (colorIndex + 1) % COLOR_NAMES.length;
+      }
 
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+      function applySwitchState(isOn, persist=true){
+        countdownDiv.style.display = isOn ? 'none' : 'flex';
+        rgbOnDiv.style.display = isOn ? 'flex' : 'none';
+        rgbOnDiv.setAttribute('aria-hidden', isOn ? 'false' : 'true');
+        rgbCheckbox.setAttribute('aria-checked', isOn ? 'true' : 'false');
+        const rgbTitle = document.querySelector('.switch-title.rgb');
+        if (rgbTitle) rgbTitle.textContent = isOn ? 'ON' : 'OFF';
+        if (persist) localStorage.setItem(KEY_RGB, isOn ? '1' : '0');
+      }
 
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
+      function applyMsState(on, persist=true){
+        showCs = !!on;
+        msCheckbox.setAttribute('aria-checked', showCs ? 'true' : 'false');
+        const msTitle = document.querySelector('.switch-title.ms');
+        if (msTitle) msTitle.textContent = showCs ? 'ON' : 'OFF';
+        if (persist) localStorage.setItem(KEY_MS, showCs ? '1' : '0');
+        updateCountdownOnce();
+      }
 
-        const rgbOnCountdownDiv = document.getElementById("rgb-on");
-        rgbOnCountdownDiv.querySelector("#days").textContent = days;
-        rgbOnCountdownDiv.querySelector("#hours").textContent = hours;
-        rgbOnCountdownDiv.querySelector("#minutes").textContent = minutes;
-        rgbOnCountdownDiv.querySelector("#seconds").textContent = seconds;
-    }
+      function startTimers(){
+        if (!countdownTimer && !finishedFlag) { updateCountdownOnce(); countdownTimer = setInterval(updateCountdownOnce, UPDATE_INTERVAL_MS); }
+        if (!colorTimer) { updateColorOnce(); colorTimer = setInterval(updateColorOnce, COLOR_INTERVAL_MS); }
+      }
+      function stopTimers(){
+        if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+        if (colorTimer) { clearInterval(colorTimer); colorTimer = null; }
+      }
 
-    // 毎秒カウントダウンを更新
-    setInterval(updateCountdown, 1000);
-    // 0.01秒ごとに色を切り替え
-    setInterval(updateColor, 10);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopTimers();
+        else startTimers();
+      }, {passive:true});
 
-    console.log("%cHey!", "color: #88F; font-size: 500%; font-weight:bold; text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83333px 0.983333px 0px, rgb(0, 0, 0) 2.35px 1.85px 0px, rgb(0, 0, 0) 1.61667px 2.51667px 0px, rgb(0, 0, 0) 0.7px 2.91667px 0px, rgb(0, 0, 0) -0.283333px 2.98333px 0px, rgb(0, 0, 0) -1.25px 2.73333px 0px, rgb(0, 0, 0) -2.06667px 2.16667px 0px, rgb(0, 0, 0) -2.66667px 1.36667px 0px, rgb(0, 0, 0) -2.96667px 0.416667px 0px, rgb(0, 0, 0) -2.95px -0.566667px 0px, rgb(0, 0, 0) -2.6px -1.5px 0px, rgb(0, 0, 0) -1.96667px -2.26667px 0px, rgb(0, 0, 0) -1.11667px -2.78333px 0px, rgb(0, 0, 0) -0.133333px -3px 0px, rgb(0, 0, 0) 0.85px -2.88333px 0px, rgb(0, 0, 0) 1.75px -2.43333px 0px, rgb(0, 0, 0) 2.45px -1.73333px 0px, rgb(0, 0, 0) 2.88333px -0.833333px 0px;");
-</script>
+      (function init(){
+        const storedRgb = localStorage.getItem(KEY_RGB);
+        const storedMs  = localStorage.getItem(KEY_MS);
+        const isOn = storedRgb === '1';
+        const msOn = storedMs === '1' || storedMs === null;
 
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
-      <style>
-         body {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         height: 100vh;
-         background-color: black;
-         }
+        rgbCheckbox.checked = isOn;
+        msCheckbox.checked  = msOn;
+        applySwitchState(isOn, false);
+        applyMsState(msOn, false);
 
-         @media screen and (min-width: 1000px) {
-         /* pcのスタイル */
-         h1 {
-         font-size: 86px;
-         font-family: 'Dela Gothic One', cursive;
-         color: yellow
-         }
+        rgbCheckbox.addEventListener('change', () => {
+          applySwitchState(rgbCheckbox.checked, true);
+        });
+        msCheckbox.addEventListener('change', () => {
+          applyMsState(msCheckbox.checked, true);
+        });
 
-         .pc-only {
-         display: block;
-         }
+        closeButton.addEventListener('click', () => {
+          rgbButton.style.display = 'none';
+        });
 
-         .mobile-only {
-         display: none;
-         }
+        startTimers();
+      })();
 
-         .mobile-only-2 {
-         display: none;
-         }
-
-         .title {
-         font-size: 18px;
-         color: rgb(163, 163, 163);
-         }
-
-         }
-         @media screen and (max-width: 999px) {
-         /* スマホのスタイル */
-         h1 {
-         font-size: 55px;
-         font-family: 'Dela Gothic One', cursive;
-         color: yellow
-         }
-
-         .pc-only {
-         display: none;
-         }
-
-         .mobile-only {
-         display: block;
-         font-size: 80px;
-         font-family: 'Dela Gothic One', cursive;
-         color: yellow; 
-         justify-content: center;
-         align-items: center; 
-         }
-
-         .mobile-only-2 {
-         display: block;
-         font-size: 80px;
-         font-family: 'Dela Gothic One', cursive;
-         color: yellow; 
-         justify-content: center;
-         align-items: center;
-         }
-
-         #countdown {
-         display: flex;
-         font-size: 75px;
-         align-items: center;
-         justify-content: center;
-         font-family: 'Noto Serif JP', serif;
-         }
-
-         #rgb-on {
-         display: flex;
-         font-size: 75px;
-         align-items: center;
-         justify-content: center;
-         font-family: 'Noto Serif JP', serif;
-         }
-
-         .close-button {
-         position: absolute;
-         top: 5px;
-         right: 5px;
-         cursor: pointer;
-         font-weight: bold;
-         font-size: 65px;
-         line-height: 1;
-         }
-
-         .rgb-button {
-         position: fixed;
-         bottom: 1em;
-         left: 1em;
-         background-color: #333; /* 背景色を灰色に設定 */
-         color: #fff; /* テキストの色を白に設定 */
-         padding: 25px; /* 内側の余白を設定 */
-         z-index: 999; /* 他の要素の上に表示 */
-         border-radius: 5px;
-         border: 2px solid #ccc;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-         }
-
-         .rgb {
-         padding: 20px;
-         font-size: 50px;
-         -webkit-font-smoothing:auto
-         }
-
-         .title {
-         font-size: 50px;
-         color: rgb(163, 163, 163);
-         }
-
-         .base {
-         width: 91px;
-         border-radius: 26px;
-         height: 52px;
-         background-color: #ddd;
-         }
-
-         .circle {
-         position: absolute;
-         top: 8px;
-         left: 6px;
-         width: 38px;
-         height: 38px;
-         border-radius: 36px;
-         background-color: rgb(255, 255, 255);
-         }
-
-         /* スマホのスタイルここまで */}
-
-         @media screen and (min-width: 1000px) {
-         /* PCのスタイル */
-         #countdown {
-         display: flex;
-         font-size: 75px;
-         align-items: center;
-         justify-content: center;
-         font-family: 'Noto Serif JP', serif;
-         }
-
-         #rgb-on {
-         display: flex;
-         font-size: 75px;
-         align-items: center;
-         justify-content: center;
-         font-family: 'Noto Serif JP', serif;
-         }
-
-         .base {
-         width: 56px;
-         border-radius: 16px;
-         height: 32px;
-         background-color: #ddd;
-         }
-
-         .close-button {
-         position: absolute;
-         top: 5px;
-         right: 5px;
-         cursor: pointer;
-         font-weight: bold;
-         font-size: 25px;
-         line-height: 1;
-         }
-
-         .rgb-button {
-         position: fixed;
-         bottom: 1em;
-         left: 1em;
-         background-color: #333; /* 背景色を灰色に設定 */
-         color: #fff; /* テキストの色を白に設定 */
-         padding: 10px; /* 内側の余白を設定 */
-         z-index: 999; /* 他の要素の上に表示 */
-         border-radius: 5px;
-         border: 2px solid #ccc;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-         }
-
-         .rgb {
-         padding: 20px;
-         font-size: 18px;
-         -webkit-font-smoothing:auto
-         }
-
-         .circle {
-         position: absolute;
-         top: 4px;
-         left: 4px;
-         width: 24px;
-         height: 24px;
-         border-radius: 12px;
-         background-color: rgb(255, 255, 255);
-         }
-
-         /* PCのスタイルここまで */}
-
-         /*共通のスタイル*/
-         .copyright {
-         text-align: center; /* コピーライトを中央に配置する */
-         position: relative;
-         border: solid 2px red;
-         display: inline-block;
-         width: 50em;
-         height: 4em;
-         }
-  
-         .copyright font {
-         font-size: 30px; /* コピーライトのフォントサイズを0.9remに変更 */
-         }
-
-
-         #countdown div {
-         margin: 0 10px;
-         }
-
-         #rgb-on div {
-         margin: 0 10px;
-         }
-
-         .secondary-button {
-         background-color: #ccc;
-         color: #333;
-         text-decoration: none;
-         padding: 3px 1px;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-         margin: 0 auto;
-         width: 10em;
-         }
-
-         .close-button:hover {
-         color: #f00; /* ホバー時に色を変更 */
-         }
-
-         /* カウントダウンのカラーパレット */
-         .color1 {
-         color: red;
-         }
-
-         .color2 {
-         color: orange;
-         }
-
-         .color3 {
-         color: yellow;
-         }
-
-         .color4 {
-         color: green;
-         }
-
-         .color5 {
-         color: blue;
-         }
-
-         .color6 {
-         color: indigo;
-         }
-
-         .color7 {
-         color: violet;
-         }
-
-         .color8 {
-         color: lime;
-         }
-
-         .color9 {
-         color: lightcyan;
-         }
-
-         .color10 {
-         color: cadetblue;
-         }
-
-         .color11 {
-         color: deepskyblue;
-         }
-
-         .color12 {
-         color: olive;
-         }
-
-         .color13 {
-         color: plum;
-         }
-
-         .color14 {
-         color: seagreen;
-         }
-
-         .color15 {
-         color: purple;
-         }
-
-         .color16 {
-         color: #1f640a;
-         }
-         .color17 {
-         color: rgb(24, 184, 224);
-         }
-
-         .color18 {
-         color: rgb(228, 135, 29);
-         }
-
-         .color19 {
-         color: rgb(85, 56, 216);
-         }
-
-         .color20 {
-         color: rgb(42, 155, 130);
-         }
-
-         .switch_label {
-         position: relative;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         }
-
-         input[type='checkbox'] {
-         position: absolute;
-         width: 0;
-         height: 0;
-         }
-
-         input:checked ~ .base {
-         background-color: rgb(43, 129, 241);
-         }
-
-         .switch {
-         position: relative;
-         }
-
-         input:checked ~ .circle {
-         transform: translateX(100%);
-         }
-      </style>
-   </head>
-   <body>
-      <div class="rgb-button">
-         <font color="white"> <span class="close-button">×</span></font>
-         <div class="rgb" style="text-align:center;">
-            <font face="ＭＳＰ明朝">RGBの切り替え</font><br> 
-            <label for="switch" class="switch_label">
-               <div class="switch">
-                  <input type="checkbox" id="switch" />
-                  <div class="circle"></div>
-                  <div class="base"></div>
-                  <span class="title">OFF</span>
-            </label>
-            </div>
-         </div>
-      </div>
-      </font>
-      </div>
-      </div>
-      <div class="pc-only">
-         <h1>2025年度第2回実用英語技能検定まで</h1>
-      </div>
-      <div class="mobile-only">2025年度</div>
-      <br>
-      <div class="mobile-only-2">第2回実用英語技能検定まで</div>
-      <div id="countdown">
-         <div class="color1"> <span id="days">0</span> 日 </div>
-         <div class="color11"> <span id="hours">0</span> 時間 </div>
-         <div class="color8"> <span id="minutes">0</span> 分 </div>
-         <div class="color2"> <span id="seconds">0</span> 秒 </div>
-      </div>
-      <div id="rgb-on">
-         <div class="color1"> <span id="days">0</span> 日 </div>
-         <div class="color11"> <span id="hours">0</span> 時間 </div>
-         <div class="color8"> <span id="minutes">0</span> 分 </div>
-         <div class="color2"> <span id="seconds">0</span> 秒 </div>
-      </div>
-      <br><br><br><br><br><br><br><br>
-      <div class="copyright" style="padding: 1px; border: 3px solid #333333; border-radius: 10px;" align="center">
-        <footer>
-          <h2 style="text-align:center">
-            <font color="white">
-              <font face="ＭＳ Ｐ明朝">Copyright © B.C 114514 Cgengokyo Inc. All Rights Reserved.</h2>
-        </footer>
-      </div>
-      <script src="count.js"></script>
-   </body>
+      window.addEventListener('beforeunload', stopTimers);
+    })();
+  </script>
+</body>
 </html>
