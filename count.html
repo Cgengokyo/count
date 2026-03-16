@@ -3,660 +3,430 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>2026年度第1回実用英語技能検定まで</title>
+  <title>実用英語技能検定まで</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <style>
-    :root {
-      --bg: #0a0a1a;
-      --primary: #00ffff;
-      --primary-dark: #00b3b3;
-      --text: #e0e0e0;
-      --card: #1a1a2e;
-      --border: #3a3a5e;
+    :root{
+      --bg:#07101f;
+      --bg2:#0e1d33;
+      --panel:#12233b;
+      --panel-2:#162b46;
+      --line-soft:rgba(106, 174, 255, 0.18);
+      --text:#eff7ff;
+      --muted:#a7bfd7;
+      --primary:#84e7ff;
+      --accent:#6ee7b7;
+      --shadow-md:0 14px 32px rgba(0,0,0,0.24);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:16px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    html, body {
-      height: 100%;
+    html,
+    body{
+      min-height:100%;
     }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Noto Sans JP', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      padding: 1rem;
-      overflow-x: hidden;
+    html{
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.4rem;
-      padding: 1rem;
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Noto Sans JP',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(132,231,255,0.08), transparent 32%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      padding:16px;
+      overflow-x:hidden;
     }
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--primary);
-      text-shadow: 0 0 6px var(--primary);
-      font-size: clamp(28px, 4.5vw, 72px);
-      line-height: 1;
-      text-align: center;
-      width: 100%;
-      display: block;
-      overflow: visible;
-      margin: 0;
+    .container{
+      width:min(100%, 1100px);
+      display:grid;
+      gap:18px;
+      justify-items:center;
+      align-items:start;
+      justify-content:center;
+      padding:6px 0;
     }
 
-    .title-wrapper-mobile {
-      display: block;
-      text-align: center;
+    h1{
+      width:fit-content;
+      max-width:100%;
+      margin:0 auto;
+      text-align:center;
+      font-family:'Orbitron',sans-serif;
+      font-size:clamp(1.8rem, 7vw, 4.8rem);
+      line-height:1.08;
+      letter-spacing:0.03em;
+      color:var(--primary);
+      text-shadow:0 0 18px rgba(132,231,255,0.18);
+      justify-self:center;
     }
 
-    .title-line1 {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      font-size: 27px;
+    .title-line1,
+    .title-line2{
+      display:block;
     }
 
-    .title-line2 {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      font-size: 27px;
+    .title-line1{
+      color:var(--primary);
+      margin-bottom:0.25em;
     }
 
-    .title-desktop {
-      display: none;
+    .count-wrap{
+      width:min(100%, 980px);
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:12px;
+      justify-content:center;
+      justify-items:center;
     }
 
-    .count-wrap {
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: nowrap;
-      width: 100%;
-      max-width: 1100px;
+    #countdown,
+    #rgb-on{
+      margin:0 auto;
+      width:100%;
     }
 
-    .unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-width: 140px;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      padding-left: 1.2rem;
-      padding-right: 1.2rem;
-      border-radius: 12px;
-      border-style: solid;
-      border-width: 2px;
-      border-color: var(--border);
-      background: rgba(255,255,255,0.02);
-      box-sizing: border-box;
+    .unit{
+      display:grid;
+      place-items:center;
+      gap:8px;
+      width:100%;
+      min-height:112px;
+      padding:16px 10px;
+      border-radius:var(--radius-lg);
+      border:1px solid var(--line-soft);
+      background:linear-gradient(180deg, var(--panel), var(--panel-2));
+      box-shadow:var(--shadow-md);
+      text-align:center;
     }
 
-    .unit .value {
-      font-weight: 800;
-      font-size: clamp(28px, 4.5vw, 48px);
-      line-height: 1;
-      display: block;
+    .unit .value{
+      font-size:clamp(1.72rem, 8.2vw, 3.4rem);
+      font-weight:800;
+      line-height:1;
+      letter-spacing:0.02em;
+      white-space:nowrap;
+      font-variant-numeric:tabular-nums;
     }
 
-    .unit .label {
-      font-size: 0.8rem;
-      opacity: 0.9;
-      margin-top: 6px;
+    .unit .label{
+      color:var(--muted);
+      font-size:0.8rem;
+      letter-spacing:0.18em;
     }
 
-    /* color */
-    .color1 { color: #ff4d4d; }
-    .color2 { color: #ff8a33; }
-    .color3 { color: #ffd24d; }
-    .color4 { color: #4cd97b; }
-    .color5 { color: #4d9bff; }
-    .color6 { color: #6f5cff; }
-    .color7 { color: #b86bff; }
-    .color8 { color: #9fff4d; }
-    .color9 { color: #aeefff; }
-    .color10 { color: #5fb6b6; }
-    .color11 { color: #00bfff; }
-    .color12 { color: #808000; }
-    .color13 { color: #d3a4ff; }
-    .color14 { color: #2ea36b; }
-    .color15 { color: #800080; }
-    .color16 { color: #1f640a; }
-    .color17 { color: rgb(24,184,224); }
-    .color18 { color: rgb(228,135,29); }
-    .color19 { color: rgb(85,56,216); }
-    .color20 { color: rgb(42,155,130); }
+    .color1{ color:#ff4d4d; }
+    .color2{ color:#ff8a33; }
+    .color3{ color:#ffd24d; }
+    .color4{ color:#4cd97b; }
+    .color5{ color:#4d9bff; }
+    .color6{ color:#6f5cff; }
+    .color7{ color:#b86bff; }
+    .color8{ color:#9fff4d; }
+    .color9{ color:#aeefff; }
+    .color10{ color:#5fb6b6; }
+    .color11{ color:#00bfff; }
+    .color12{ color:#808000; }
+    .color13{ color:#d3a4ff; }
+    .color14{ color:#2ea36b; }
+    .color15{ color:#800080; }
+    .color16{ color:#1f640a; }
+    .color17{ color:rgb(24,184,224); }
+    .color18{ color:rgb(228,135,29); }
+    .color19{ color:rgb(85,56,216); }
+    .color20{ color:rgb(42,155,130); }
 
-    .rgb-button {
-      position: fixed;
-      left: 1rem;
-      bottom: 1rem;
-      z-index: 999;
-      display: flex;
-      gap: 0.6rem;
-      align-items: center;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      border-radius: 10px;
-      background: var(--card);
-      border-style: solid;
-      border-width: 1px;
-      border-color: var(--border);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-      user-select: none;
-      flex-wrap: nowrap;
+    .rgb-button{
+      width:min(100%, 900px);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      padding:12px;
+      border-radius:var(--radius-xl);
+      border:1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
+        linear-gradient(180deg, rgba(10,20,38,0.92), rgba(14,29,51,0.92));
+      box-shadow:var(--shadow-md);
     }
 
-    .rgb-close {
-      background: transparent;
-      border: none;
-      color: var(--text);
-      font-size: 1.15rem;
-      cursor: pointer;
-      padding: 4px 6px;
-      line-height: 1;
+    .switch_label{
+      position:relative;
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) auto;
+      align-items:center;
+      gap:12px;
+      width:100%;
+      padding:10px 12px;
+      border-radius:var(--radius-md);
+      cursor:pointer;
+      user-select:none;
+      background:rgba(255,255,255,0.025);
+      border:1px solid rgba(255,255,255,0.03);
+      transition:background 0.18s ease, border-color 0.18s ease;
     }
 
-    .switch_label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      position: relative;
-      cursor: pointer;
-      user-select: none;
+    .switch_label:hover{
+      background:rgba(255,255,255,0.04);
+      border-color:rgba(132,231,255,0.12);
     }
 
-    .switch_label input[type="checkbox"] {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      border: 0;
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      overflow: hidden;
-      white-space: nowrap;
+    .switch_label input[type="checkbox"]{
+      position:absolute;
+      width:1px;
+      height:1px;
+      margin:-1px;
+      padding:0;
+      border:0;
+      clip:rect(0 0 0 0);
+      clip-path:inset(50%);
+      overflow:hidden;
+      white-space:nowrap;
     }
 
-    .base {
-      width: 60px;
-      height: 36px;
-      border-radius: 999px;
-      background: #ddd;
-      position: relative;
-      flex-shrink: 0;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0,0,0,0.06);
-      transition: background 0.18s, border-color 0.18s;
+    .base{
+      width:60px;
+      height:34px;
+      border-radius:999px;
+      position:relative;
+      background:rgba(255,255,255,0.18);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08);
     }
 
-    .circle {
-      position: absolute;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #fff;
-      top: 4px;
-      left: 4px;
-      transition: transform 0.18s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    .circle{
+      position:absolute;
+      top:3px;
+      left:3px;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      background:linear-gradient(180deg, #ffffff, #dff6ff);
+      box-shadow:0 2px 8px rgba(0,0,0,0.22);
+      transition:transform 0.18s ease;
     }
 
-    .switch_label input[type="checkbox"]:checked + .base {
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      border-color: var(--primary);
+    .switch_label input[type="checkbox"]:checked + .base{
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      border-color:rgba(132,231,255,0.46);
     }
 
-    .switch_label input[type="checkbox"]:checked + .base .circle {
-      transform: translateX(100%);
+    .switch_label input[type="checkbox"]:checked + .base .circle{
+      transform:translateX(26px);
     }
 
-    .switch_label input[type="checkbox"]:checked + .base + .switch-title {
-      color: var(--primary);
+    .switch_label input[type="checkbox"]:focus-visible + .base{
+      outline:2px solid rgba(132,231,255,0.95);
+      outline-offset:2px;
     }
 
-    .switch-title {
-      font-weight: 700;
-      font-family: 'Orbitron', sans-serif;
-      color: var(--text);
-      font-size: 0.98rem;
-      display: inline-block;
-      min-width: 84px;
-      text-align: left;
+    .switch-title{
+      min-width:0;
+      font-family:'Orbitron',sans-serif;
+      font-weight:700;
+      font-size:0.92rem;
+      color:var(--text);
+      letter-spacing:0.03em;
     }
 
-    .switch-title.rgb::before {
-      content: "RGB ";
-      font-weight: 700;
-      margin-right: 4px;
+    .switch_label input[type="checkbox"]:checked + .base + .switch-title{
+      color:var(--primary);
     }
 
-    .switch-title.ms::before {
-      content: "ミリ秒 ";
-      font-weight: 700;
-      margin-right: 4px;
+    .switch-title.rgb::before{
+      content:"RGB ";
+      margin-right:4px;
     }
 
-    /* コピーライト */
-    .copyright {
-      width: 100%;
-      max-width: 760px;
-      padding-top: 0.9rem;
-      padding-bottom: 0.9rem;
-      padding-left: 0.9rem;
-      padding-right: 0.9rem;
-      border-radius: 8px;
-      background: var(--card);
-      border-style: solid;
-      border-width: 1px;
-      border-color: var(--border);
-      text-align: center;
-      font-size: 0.95rem;
-      margin-top: 1.2rem;
+    .switch-title.ms::before{
+      content:"ミリ秒 ";
+      margin-right:4px;
     }
 
-    .copyright .cr-part {
-      display: inline;
-    }
-
-    /* ======= スマホ ======= */
-    @media (max-width: 420px) {
-      .container {
-        gap: 1.0rem;
-        padding-left: 0.6rem;
-        padding-right: 0.6rem;
+    @media (max-width: 359px){
+      body{
+        padding:12px;
       }
 
-      h1 {
-        font-size: clamp(18px, 8.0vw, 28px);
-        white-space: normal;
+      .container{
+        gap:14px;
       }
 
-      .title-wrapper-mobile {
-        display: block;
+      h1{
+        font-size:1.45rem;
       }
 
-      .title-desktop {
-        display: none;
+      .unit{
+        min-height:94px;
+        padding:12px 8px;
       }
 
-      .title-line1 {
-        font-size: 27px;
+      .unit .value{
+        font-size:1.55rem;
       }
 
-      .title-line2 {
-        font-size: 27px;
+      .unit .label{
+        font-size:0.72rem;
+        letter-spacing:0.12em;
       }
 
-      .count-wrap {
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap: 0.5rem;
-        padding-left: 6px;
-        padding-right: 6px;
+      .rgb-button{
+        padding:10px;
       }
 
-      .unit {
-        flex: 0 0 22%;
-        max-width: 22%;
-        min-width: 0;
-        padding-top: 0.45rem;
-        padding-bottom: 0.45rem;
-        padding-left: 0.45rem;
-        padding-right: 0.45rem;
-        border-width: 1px;
+      .switch_label{
+        padding:9px 10px;
       }
 
-      .unit .value {
-        font-size: clamp(16px, 7.5vw, 24px);
-      }
-
-      .rgb-button {
-        left: 0.5rem;
-        bottom: 0.5rem;
-        padding-top: 0.35rem;
-        padding-bottom: 0.35rem;
-        gap: 0.35rem;
-      }
-
-      .copyright {
-        margin-top: 1.0rem;
-        font-size: 0.88rem;
-      }
-
-      .copyright .cr-part {
-        display: block;
-        margin-top: 6px;
+      .switch-title{
+        font-size:0.8rem;
       }
     }
 
-    /* ======= タブレット ======= */
-    @media (max-width: 900px) {
-      .container {
-        gap: 1.6rem;
-        padding-left: 0.8rem;
-        padding-right: 0.8rem;
+    @media (min-width: 600px){
+      .container{
+        gap:24px;
       }
 
-      h1 {
-        font-size: clamp(20px, 5.2vw, 44px);
-        white-space: normal;
+      .count-wrap{
+        grid-template-columns:repeat(4, minmax(0, 1fr));
+        gap:14px;
+        width:min(100%, 980px);
       }
 
-      .title-wrapper-mobile {
-        display: block;
+      .unit{
+        min-height:144px;
+        padding:20px 14px;
       }
 
-      .title-desktop {
-        display: none;
+      .unit .value{
+        font-size:clamp(2.2rem, 5vw, 3.5rem);
       }
 
-      .title-line1 {
-        display: block;
-        text-align: center;
-      }
-
-      .title-line2 {
-        display: block;
-        text-align: center;
-      }
-
-      .count-wrap {
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap: 0.8rem;
-      }
-
-      .unit {
-        flex: 0 0 23%;
-        max-width: 23%;
-        min-width: 0;
-        padding-top: 0.8rem;
-        padding-bottom: 0.8rem;
-        padding-left: 0.8rem;
-        padding-right: 0.8rem;
-      }
-
-      .unit .value {
-        font-size: clamp(20px, 4.2vw, 34px);
-      }
-
-      .rgb-button {
-        left: 0.7rem;
-        bottom: 0.7rem;
-      }
-
-      .copyright {
-        font-size: 0.92rem;
+      .rgb-button{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        align-items:stretch;
       }
     }
 
-    /* ======= PC ======= */
-    @media (min-width: 901px) {
-      .container {
-        gap: 2.8rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
+    @media (min-width: 900px){
+      body{
+        padding:28px;
       }
 
-      h1 {
-        font-size: 78px;
-        white-space: nowrap;
+      .container{
+        gap:34px;
+        justify-items:center;
       }
 
-      .title-wrapper-mobile {
-        display: none;
+      h1{
+        font-size:clamp(3.2rem, 5vw, 4.9rem);
+        white-space:nowrap;
+        width:auto;
       }
 
-      .title-desktop {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
+      .title-line1,
+      .title-line2{
+        display:inline;
       }
 
-      .title-desktop .title-desktop-text {
-        display: inline-block;
-        font-size: 78px;
-        line-height: 1;
-        white-space: nowrap;
-        margin: 0;
+      .title-line1{
+        margin-bottom:0;
+        margin-right:0.24em;
       }
 
-      .count-wrap {
-        gap: 1.6rem;
+      .count-wrap{
+        gap:20px;
+        width:min(100%, 860px);
+        margin:0 auto;
       }
 
-      .unit {
-        flex: 0 0 200px;
-        min-width: 200px;
-        padding-top: 1.4rem;
-        padding-bottom: 1.4rem;
-        padding-left: 1.6rem;
-        padding-right: 1.6rem;
-        border-width: 2px;
+      .unit{
+        min-height:184px;
+        padding:24px 14px;
+        border-radius:24px;
       }
 
-      .unit .value {
-        font-size: 3rem;
+      .unit .value{
+        font-size:clamp(2.8rem, 4vw, 4rem);
       }
 
-      .copyright {
-        margin-top: 2.6rem;
-        font-size: 1rem;
+      .unit .label{
+        font-size:0.95rem;
+      }
+
+      .rgb-button{
+        width:min(100%, 720px);
+        justify-self:center;
+        padding:14px;
+        gap:14px;
+      }
+
+      .switch_label{
+        min-height:76px;
+        padding:12px 14px;
+      }
+
+      .switch-title{
+        font-size:0.95rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container" role="main" aria-labelledby="page-title">
-    <!-- 見出し -->
-    <h1 id="page-title" aria-label="20265年度第1回 実用英語技能検定まで">
-      <div class="title-wrapper-mobile" aria-hidden="false">
-        <span class="title-line1">2026年度第1回</span>
-        <span class="title-line2">実用英語技能検定まで</span>
-      </div>
-      <div class="title-desktop" aria-hidden="true">
-        <span class="title-desktop-text">2026年度第1回 実用英語技能検定まで</span>
-      </div>
+    <h1 id="page-title">
+      <span class="title-line1" data-eiken-round>2026年度第1回</span>
+      <span class="title-line2">実用英語技能検定まで</span>
     </h1>
-    <!-- 通常カウントダウン -->
+
     <div id="countdown" class="count-wrap" aria-live="polite" role="status">
       <div class="unit" data-unit="days"><span class="value">0</span><span class="label">日</span></div>
       <div class="unit" data-unit="hours"><span class="value">0</span><span class="label">時間</span></div>
       <div class="unit" data-unit="minutes"><span class="value">0</span><span class="label">分</span></div>
       <div class="unit" data-unit="seconds"><span class="value">0.00</span><span class="label">秒</span></div>
     </div>
-    <!-- RGB表示 -->
+
     <div id="rgb-on" class="count-wrap" aria-hidden="true" style="display:none;">
       <div class="unit" data-unit="days"><span class="value">0</span><span class="label">日</span></div>
       <div class="unit" data-unit="hours"><span class="value">0</span><span class="label">時間</span></div>
       <div class="unit" data-unit="minutes"><span class="value">0</span><span class="label">分</span></div>
       <div class="unit" data-unit="seconds"><span class="value">0.00</span><span class="label">秒</span></div>
     </div>
-    <div class="copyright" role="contentinfo">
-      <p>
-        <span class="cr-part">Copyright © B.C 114514 Cgengokyo Inc.</span>
-        <span class="cr-part">All Rights Reserved.</span>
-      </p>
+
+    <div class="rgb-button" role="region" aria-label="RGB とミリ秒の切替">
+      <label class="switch_label" for="switch">
+        <input id="switch" type="checkbox" aria-checked="false" />
+        <div class="base" aria-hidden="true"><div class="circle" aria-hidden="true"></div></div>
+        <span class="switch-title rgb" aria-hidden="true">OFF</span>
+      </label>
+
+      <label class="switch_label" for="ms-switch">
+        <input id="ms-switch" type="checkbox" aria-checked="false" />
+        <div class="base" aria-hidden="true"><div class="circle" aria-hidden="true"></div></div>
+        <span class="switch-title ms" aria-hidden="true">OFF</span>
+      </label>
     </div>
   </div>
-  <div class="rgb-button" role="region" aria-label="RGB とミリ秒の切替">
-    <button class="rgb-close close-button" aria-label="閉じるパネル">×</button>
-    <!-- RGB スイッチ -->
-    <label class="switch_label" for="switch">
-      <input id="switch" type="checkbox" aria-checked="false" />
-      <div class="base" aria-hidden="true"><div class="circle" aria-hidden="true"></div></div>
-      <span class="switch-title rgb" aria-hidden="true">OFF</span>
-    </label>
-    <!-- ミリ秒 スイッチ -->
-    <label class="switch_label" for="ms-switch">
-      <input id="ms-switch" type="checkbox" aria-checked="false" />
-      <div class="base" aria-hidden="true"><div class="circle" aria-hidden="true"></div></div>
-      <span class="switch-title ms" aria-hidden="true">OFF</span>
-    </label>
-  </div>
-  <script>
-    (function(){
-      const TARGET_DATE = new Date("2026-05-31T00:00:00");
-      const COLOR_NAMES = ["color1","color2","color3","color4","color5","color6","color7","color8","color9","color10",
-                           "color11","color12","color13","color14","color15","color16","color17","color18","color19","color20"];
-      const COLOR_INTERVAL_MS = 150;
-      const UPDATE_INTERVAL_MS = 50;
 
-      const rgbCheckbox = document.getElementById('switch');
-      const msCheckbox  = document.getElementById('ms-switch');
-      const countdownDiv = document.getElementById('countdown');
-      const rgbOnDiv = document.getElementById('rgb-on');
-      const rgbButton = document.querySelector('.rgb-button');
-      const closeButton = document.querySelector('.close-button');
-
-      const UNITS = ["days","hours","minutes","seconds"];
-      function getValueElem(container, unit){
-        return container.querySelector(`[data-unit="${unit}"] .value`);
-      }
-
-      let finishedFlag = false;
-      let colorIndex = 0;
-      let countdownTimer = null;
-      let colorTimer = null;
-      let showCs = true;
-      const KEY_RGB = 'countRgbOn';
-      const KEY_MS  = 'countShowCs';
-
-      function updateCountdownOnce(){
-        const now = new Date();
-        let diff = TARGET_DATE - now;
-        if (diff <= 0){
-          diff = 0;
-          if (!finishedFlag){
-            finishedFlag = true;
-            if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
-          }
-        }
-
-        const days = Math.floor(diff / (1000*60*60*24));
-        const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-        const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-        const seconds = Math.floor((diff % (1000*60)) / 1000);
-        const ms = Math.floor(diff % 1000);
-        const cs = Math.floor(ms / 10);
-
-        const secondsWithCs = showCs ? `${seconds}.${String(cs).padStart(2,'0')}` : String(seconds);
-        const values = { days, hours, minutes, seconds: secondsWithCs };
-
-        UNITS.forEach(u => {
-          const e1 = getValueElem(countdownDiv, u);
-          const e2 = getValueElem(rgbOnDiv, u);
-          if (e1) e1.textContent = values[u];
-          if (e2) e2.textContent = values[u];
-        });
-      }
-
-      function updateColorOnce(){
-        const valueElems = Array.from(rgbOnDiv.querySelectorAll('.value'));
-        valueElems.forEach((span, idx) => {
-          COLOR_NAMES.forEach(c => span.classList.remove(c));
-          const colorClass = COLOR_NAMES[(colorIndex + idx) % COLOR_NAMES.length];
-          span.classList.add(colorClass);
-        });
-        colorIndex = (colorIndex + 1) % COLOR_NAMES.length;
-      }
-
-      function applySwitchState(isOn, persist=true){
-        countdownDiv.style.display = isOn ? 'none' : 'flex';
-        rgbOnDiv.style.display = isOn ? 'flex' : 'none';
-        rgbOnDiv.setAttribute('aria-hidden', isOn ? 'false' : 'true');
-        rgbCheckbox.setAttribute('aria-checked', isOn ? 'true' : 'false');
-        const rgbTitle = document.querySelector('.switch-title.rgb');
-        if (rgbTitle) rgbTitle.textContent = isOn ? 'ON' : 'OFF';
-        if (persist) localStorage.setItem(KEY_RGB, isOn ? '1' : '0');
-      }
-
-      function applyMsState(on, persist=true){
-        showCs = !!on;
-        msCheckbox.setAttribute('aria-checked', showCs ? 'true' : 'false');
-        const msTitle = document.querySelector('.switch-title.ms');
-        if (msTitle) msTitle.textContent = showCs ? 'ON' : 'OFF';
-        if (persist) localStorage.setItem(KEY_MS, showCs ? '1' : '0');
-        updateCountdownOnce();
-      }
-
-      function startTimers(){
-        if (!countdownTimer && !finishedFlag) { updateCountdownOnce(); countdownTimer = setInterval(updateCountdownOnce, UPDATE_INTERVAL_MS); }
-        if (!colorTimer) { updateColorOnce(); colorTimer = setInterval(updateColorOnce, COLOR_INTERVAL_MS); }
-      }
-      function stopTimers(){
-        if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
-        if (colorTimer) { clearInterval(colorTimer); colorTimer = null; }
-      }
-
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) stopTimers();
-        else startTimers();
-      }, {passive:true});
-
-      (function init(){
-        const storedRgb = localStorage.getItem(KEY_RGB);
-        const storedMs  = localStorage.getItem(KEY_MS);
-        const isOn = storedRgb === '1';
-        const msOn = storedMs === '1' || storedMs === null;
-
-        rgbCheckbox.checked = isOn;
-        msCheckbox.checked  = msOn;
-        applySwitchState(isOn, false);
-        applyMsState(msOn, false);
-
-        rgbCheckbox.addEventListener('change', () => {
-          applySwitchState(rgbCheckbox.checked, true);
-        });
-        msCheckbox.addEventListener('change', () => {
-          applyMsState(msCheckbox.checked, true);
-        });
-
-        closeButton.addEventListener('click', () => {
-          rgbButton.style.display = 'none';
-        });
-
-        startTimers();
-      })();
-
-      window.addEventListener('beforeunload', stopTimers);
-    })();
-  </script>
+  <script src="./count.js"></script>
 </body>
 </html>
