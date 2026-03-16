@@ -74,7 +74,7 @@
 
   function updateTitle(now) {
     const nextExam = getNextExam(now);
-    const title = `${nextExam.fiscalYear}年度第${nextExam.round}回実用英語技能検定まで`;
+    const title = `${nextExam.fiscalYear}年度第${nextExam.round}回 実用英語技能検定まで`;
 
     document.title = title;
 
